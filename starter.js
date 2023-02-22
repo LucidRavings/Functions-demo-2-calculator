@@ -28,7 +28,18 @@ function devide(num1, num2){
   return num1 / num2
 }
 
-console.log(add(6, 4))
+const calculator = (num1, num2, callback) => {
+  if(!isNaN(+num1) && !isNaN(+num2)){
+    num1 = +num1
+    num2 = +num2
+    return callback(num1, num2)
+  } else {
+    console.log("Give me numbers!")
+  }
+}
+const result = calculator(5, 4, add)
+
+console.log(result)
 
 ///////////////////////
 ////// PET STORE //////
