@@ -37,7 +37,7 @@ const calculator = (num1, num2, callback) => {
     console.log("Give me numbers!")
   }
 }
-const result = calculator(5, 4, add)
+const result = calculator(5, 4, multiply)
 
 console.log(result)
 
@@ -101,6 +101,24 @@ const catProducts = [
 
 // CODE HERE
 
+//Apply discount by percentage (0.5 = 50%)
+const applyPercentDiscount = (product, discount) => {
+  product.displayPrice = product.basePrice * (1 - discount)
+}
+//Apply discount by sum (5 = -$5)
+const applyFlatRateDiscount = (product, discount) => {
+  product.displayPrice = product.basePrice - discount
+}
+
+const applyDiscount = (arr, callback, discount) => {
+  for (i = 0; i < arr.length; i++){
+    callback(arr[i], discount)
+  }
+}
+
+//Invoke the applyDiscound function (Higher function)
+applyDiscount(dogProducts, applyPercentDiscount, .25)
+console.log(dogProducts)
 
 ////////////////////////
 ////// SANDWICHES //////
